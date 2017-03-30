@@ -1,0 +1,14 @@
+version: "2"
+
+services:
+  frontend:
+    build: ./app/
+    ports:
+      - "8080:80"
+    environment:
+      - GET_HOSTS_FROM=env
+      - REDIS_SLAVE_SERVICE_HOST=192.168.99.100
+      - REDIS_SLAVE_SERVICE_PORT=6380
+      - REDIS_MASTER_SERVICE_HOST=192.168.99.100
+      - REDIS_MASTER_SERVICE_PORT=6379
+
