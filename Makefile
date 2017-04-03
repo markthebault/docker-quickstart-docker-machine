@@ -13,7 +13,8 @@ start-redis:
 	
 	docker `docker-machine config redis-host` run -d -p 6380:6379 \
 		--link redis-master \
-                 --name redis-slave gcr.io/google_containers/redis:e2e
+		-e GET_HOSTS_FROM=dns \
+                 --name redis-slave gcr.io/google_samples/gb-redisslave:v1
 
 stop-redis:
 	docker `docker-machine config redis-host` rm -f redis-slave
